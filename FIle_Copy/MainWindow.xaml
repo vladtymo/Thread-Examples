@@ -1,0 +1,36 @@
+﻿<Window x:Class="FIle_Copy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FIle_Copy"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="333.333" Width="582.692" SizeToContent="Height">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel>
+            <Label VerticalAlignment="Center">From file: </Label>
+            <Button DockPanel.Dock="Right" Margin="5" Padding="20,0">Open File</Button>
+            <TextBox Margin="5"></TextBox>
+        </DockPanel>
+        <DockPanel Grid.Row="1">
+            <Label VerticalAlignment="Center">To folder:</Label>
+            <Button DockPanel.Dock="Right" Margin="5" Padding="20,0">Open Folder</Button>
+            <TextBox Margin="5"></TextBox>
+        </DockPanel>
+        <DockPanel Grid.Row="2">
+            <Label VerticalAlignment="Center">Progress</Label>
+            <Button Background="DarkSeaGreen" DockPanel.Dock="Right" Margin="5" Padding="20,0" Click="Button_Click">Copy</Button>
+            <TextBlock DockPanel.Dock="Right" VerticalAlignment="Center">
+                <Run Text="{Binding ElementName=copyProgressBar, Path=Value}"></Run>
+                <Run>%</Run>
+            </TextBlock>
+            <ProgressBar Value="{Binding Progress}" Name="copyProgressBar" Margin="5"></ProgressBar>
+        </DockPanel>
+    </Grid>
+</Window>
